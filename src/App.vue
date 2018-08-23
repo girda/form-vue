@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <VInput/>
+    <VInput 
+      type="email" 
+      id="email" 
+      for="email" 
+      label="email"
+      v-model="email"/>
   </div>
 </template>
 
@@ -11,6 +16,12 @@ export default {
   name: 'App',
   components: {
     VInput
+  },
+
+  data () {
+    return {
+      email: ''
+    }
   }
 }
 </script>
@@ -21,7 +32,7 @@ export default {
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   text-align: center
-  color: red
+  color: black
   margin-top: 60px
 
 </style>

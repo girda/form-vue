@@ -7,10 +7,8 @@
     </label>
 
     <input 
-      :type="type"
+      :type="type" 
       :id="id"
-      :value="value"
-      @input="updateValue($event.target.value)"
     />
 
   </div>
@@ -19,16 +17,10 @@
 <script>
 export default {
   name: 'VInput',
-  props: ['type', 'id', 'label', 'value'],
+  props: ['type','id','label'],
   data () {
     return {
-     
-    }
-  },
 
-  methods: {
-    updateValue(val) {
-      this.$emit('input', val)
     }
   }
 }
