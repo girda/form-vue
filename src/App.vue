@@ -1,38 +1,36 @@
 <template>
   <div id="app">
+
     <img src="./assets/logo.png">
-    <VInput 
-      type="email" 
-      id="email" 
-      for="email" 
-      label="email"
-      v-model="email"/>
+    
+    <MyForm />
+    
   </div>
 </template>
 
 <script>
-import VInput from './components/VInput'
+import MyForm from './components/MyForm'
+
 export default {
   name: 'App',
   components: {
-    VInput
-  },
-
-  data () {
-    return {
-      email: ''
-    }
+    MyForm
   }
 }
 </script>
 
 <style lang="sass">
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
 #app 
   font-family: 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
-  text-align: center
   color: black
-  margin-top: 60px
+  img
+    display: block
+    margin: 0 auto 30px
 
 </style>

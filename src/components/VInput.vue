@@ -3,7 +3,7 @@
 
     <label 
       :for="id">
-      {{label}}
+      {{label}} <span>{{labelDescr}}</span>
     </label>
 
     <input 
@@ -19,7 +19,7 @@
 <script>
 export default {
   name: 'VInput',
-  props: ['type', 'id', 'label', 'value'],
+  props: ['type', 'id', 'label', 'value','labelDescr'],
   data () {
     return {
      
@@ -35,5 +35,23 @@ export default {
 </script>
 
 <style lang="sass">
+
+.v-input
+  display: flex
+  flex-direction: column
+  width: 100%
+  label
+    font-size: 10px
+    text-transform: uppercase
+    margin-bottom: 14px
+    span
+      text-transform: lowercase
+  input
+    font-size: 12px
+    line-height: 42px
+    padding: 0 15px
+
+
+
 
 </style>
