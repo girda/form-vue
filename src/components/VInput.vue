@@ -12,7 +12,6 @@
       :value="value"
       @input="updateValue($event.target.value)"
     />
-
   </div>
 </template>
 

@@ -2,21 +2,29 @@
   <form class="my-form">
 
     <div class="my-form__row">
-      <VInput 
-        class="my-form__el"
-        type="text" 
-        id="first-name" 
-        for="first-name" 
-        label="First name"
-        v-model="firstName"/>
+      <div class="my-form__row-el">
+        <VInput 
+          class="my-form__el"
+          type="text" 
+          id="first-name" 
+          for="first-name" 
+          label="First name"
+          v-model="firstName"
+          @input="v => setFirstName(v)" />
+          <div class="error" v-if="!$v.firstName.minLength">errors</div>
+      </div>
 
-      <VInput
-        class="my-form__el"
-        type="text" 
-        id="last-name" 
-        for="last-name" 
-        label="Last name"
-        v-model="lastName"/>
+      <div class="my-form__row-el">
+        <VInput
+          class="my-form__el"
+          type="text" 
+          id="last-name" 
+          for="last-name" 
+          label="Last name"
+          v-model="lastName"
+          @input="v => setLastName(v)" />
+          <div class="error" v-if="!$v.lastName.minLength">errors</div>
+        </div>
     </div>
 
     <div class="my-form__row">
@@ -91,6 +99,7 @@
 
 <script>
 import VInput from './VInput'
+import { required, minLength, between } from 'vuelidate/lib/validators'
 
 export default {
   name: 'MyForm',
@@ -110,6 +119,26 @@ export default {
       zipCode: '',
       phoneNumber: ''
     }
+  },
+
+  validations: {
+    firstName: {
+      required,
+      minLength: minLength(4)
+    },
+    lastName: {
+      required,
+      minLength: minLength(4)
+    }
+  },
+
+  methods: {
+    setFirstName(value) {
+      this.firstName = value
+    },
+    setLastName(value) {
+      this.lastName = value
+    }
   }
 }
 </script>
@@ -125,8 +154,10 @@ export default {
     margin-bottom: 35px
     &:last-of-type
       margin-bottom: 20px
+    &-el
+      width: 48%  
   &__el
-    max-width: 48%
+    max-width: 100%
     &--longer
       max-width: 64%
     &--shorter
